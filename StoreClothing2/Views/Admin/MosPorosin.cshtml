@@ -1,0 +1,83 @@
+﻿@model StoreClothing2.Models.DrgPorosia
+
+@{
+    ViewBag.Title = "MosPorosin";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>MosPorosin</h2>
+
+<div>
+    <h4>DrgPorosia</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Emri)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Emri)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Mbiemri)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Mbiemri)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Rruga)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Rruga)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Qyteti)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Qyteti)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Shteti)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Shteti)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.KodiPostal)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KodiPostal)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Telefon)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Telefon)
+        </dd>
+       
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("delete", "MosPorosin") |
+    @Html.ActionLink("Back to List", "Kerkesa")
+</p>

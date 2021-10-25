@@ -1,0 +1,124 @@
+﻿@model IEnumerable<StoreClothing2.Models.Produkte>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Produkte</h2>
+<br />
+<br />
+<br />
+@using (Html.BeginForm("Index", "Produkts", FormMethod.Get))
+{
+
+    <p>
+        @Html.ActionLink("Back To Admin Panel", "IndexAdmin")
+    </p>
+    <label>Kerko</label><input type="text" id="Search" />
+
+    // <input type="hidden" name="Search" id="Search" value="@ViewBag.Search" />
+
+}
+
+<table class="table-striped" width="100%" id="tblCustomers">
+    <tr>
+        <th>
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.Emri)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.Cmimi)
+        </th>
+        <th>
+
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr class="Search">
+            <td>
+                <img width="350" height="350" src="~/Content/images/@Html.DisplayFor(modelItem => item.Imazh)" />
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Emri)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Cmimi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sasi)
+            </td>
+            <td>
+                @Html.ActionLink(
+                    linkText: "Details",
+                    actionName: "Details",
+                    controllerName: "Produktes1",
+                    routeValues: new {
+                              id = item.IDProdukte
+                            },
+                    htmlAttributes: null
+                 )
+                @Html.Raw(" | ")
+                @Html.ActionLink(
+                    linkText: "Edit",
+                    actionName: "Edit",
+                    controllerName: "Produktes1",
+                    routeValues: new {
+                              id = item.IDProdukte
+                            },
+                    htmlAttributes: null
+                 )
+                @Html.Raw(" | ")
+                @Html.ActionLink(
+                    linkText: "Delete",
+                    actionName: "Delete",
+                    controllerName: "Produktes1",
+                    routeValues: new {
+                              id = item.IDProdukte
+                            },
+                    htmlAttributes: null
+                 )
+                @Html.Raw(" | ")
+                @Html.ActionLink(
+                   linkText: "Create",
+                   actionName: "Create",
+                   controllerName: "Produktes1",
+                   routeValues: new {
+                             id = item.IDProdukte
+                           },
+                   htmlAttributes: null
+                )
+
+            </td>
+        </tr>
+    }
+
+</table>
+<script src="~/Scripts/jquery-3.3.1.min.js"></script>
+<script>
+    $(document).ready(function () {
+        function Contains(text_one, text_two) {
+            if (text_one.indexOf(text_two) != -1)
+                return true;
+        }
+        $("#Search").keyup(function () {
+            var searchText = $("#Search").val().toLowerCase();
+            $(".Search").each(function () {
+                if (!Contains($(this).text().toLowerCase(), searchText)) {
+                    $(this).hide();
+                }
+                else {
+                    $(this).show();
+                }
+            });
+        });
+    });
+</script>

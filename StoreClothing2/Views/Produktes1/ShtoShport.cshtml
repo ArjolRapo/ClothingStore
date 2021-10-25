@@ -1,0 +1,33 @@
+﻿@model IEnumerable<StoreClothing2.Models.Shporta>
+@{
+    ViewBag.Title = "ShtoKarte";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>ShtoKarte</h2>
+@Html.ActionLink("Kthehu te produktet", "Index")
+<table class="table">
+    <tr>
+        <th>Produkti</th>
+        <th>Sasia</th>
+        <th>Cmimi</th>
+        <th>Totali</th>
+        <th style="color:green"></th>
+    </tr>
+    @foreach (var kart in Model)
+    {
+        <tr>
+            <td> <img width="250" height="250" src="~/Content/images/@kart.Produkti.Imazh" /></td>
+            <td><p>@kart.Sasia</p></td>
+            <td><p>@kart.Produkti.Cmimi</p></td>
+            <td>@(kart.Sasia*kart.Produkti.Cmimi)</td>
+            <td>@Html.ActionLink("Fshi nga lista", "FshiProduktNgaKarta", new { id = @kart.Produkti.IDProdukte }, new { @class = "btn btn-danger" })</td>
+        </tr>
+    }
+</table>
+
+
+<div class="text-center">
+    @Html.ActionLink("Continue shopping", "Index", null, new { @class = "btn btn-primary" })
+    @Html.ActionLink("Porosit", "CheckOut", null, new { @class = "btn btn-primary" })
+
+</div>

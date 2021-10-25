@@ -1,0 +1,87 @@
+﻿@model StoreClothing2.Models.Produkte
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<br />
+<br />
+<br />
+
+<head>
+    <style>
+        .card {
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            max-width: 300px;
+            margin: auto;
+            text-align: center;
+            font-family: arial;
+        }
+        .price {
+            color: grey;
+            font-size: 22px;
+        }
+        .card button {
+            border: none;
+            outline: 0;
+            padding: 12px;
+            color: white;
+            background-color: #000;
+            text-align: center;
+            cursor: pointer;
+            width: 100%;
+            font-size: 18px;
+        }
+        .card button:hover {
+                opacity: 0.7;
+            }
+    </style>
+</head>
+<div>
+    <hr />
+    <dl class="card">
+        <dt>
+            @Html.DisplayNameFor(model => model.Emri)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Emri)
+        </dd>
+
+     
+
+        <dd>
+            <img width="295" height="200" src="~/Content/images/@Html.DisplayFor(model=>model.Imazh)" alt="">
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cmimi)
+        </dt>
+
+        <dd class="price">
+            @Html.DisplayFor(model => model.Cmimi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Pershkrimi)
+        </dt>
+
+        <dd>
+            <p> @Html.DisplayFor(model => model.Pershkrimi)</p>
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Sasi)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Sasi)
+        </dd>
+
+        <dd>
+            <p><button>@Html.ActionLink("Shto ne karte", "ShtoShport", new { id = Model.IDProdukte }, new { @class = "" })</button></p>
+        </dd>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.IDProdukte }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

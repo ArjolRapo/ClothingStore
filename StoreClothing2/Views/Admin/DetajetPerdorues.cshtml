@@ -1,0 +1,36 @@
+﻿@{
+    ViewBag.Title = "DetajetPerdorues";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model  StoreClothing2.Models.ApplicationUser
+<h2>DetajetPerdorues</h2>
+<div class="main-container">
+    <div class="pd-ltr-20">
+        <div class="card-box pd-20 height-100-p mb-30">
+            <div class="row align-items-center">
+
+                <div style="width:100%; text-align:center;"><h5>@Model.UserName</h5> <hr /></div>
+
+                <div class="container">
+                    <div class="row">
+                        <p class="col-md-4" style="font-size:17px;">Email: <span>@Model.Email</span></p>
+                    </div>
+                    <div class="row">
+                        <p class="col-md-4" style="font-size:17px;">
+                            Nr. cel:
+                            @if (@Model.PhoneNumber == null)
+                            {
+                                <span> - </span>
+                            }
+                            else
+                            {<span>@Model.PhoneNumber</span>}
+                        </p>
+                    </div>
+                    <div class="row">
+                        <p class="col-md-4" style="font-size:17px;"><span></span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+ 

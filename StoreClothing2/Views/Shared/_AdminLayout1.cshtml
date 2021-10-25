@@ -1,0 +1,83 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>Clothing Store</title>
+        <link rel="stylesheet" href="~/Content/node_modules/font-awesome/css/font-awesome.min.css" />
+        <link rel="stylesheet" href="~/Content/node_modules/perfect-scrollbar/dist/css/perfect-scrollbar.min.css" />
+        <link rel="stylesheet" href="~/Content/node_modules/flag-icon-css/css/flag-icon.min.css" />
+        <link rel="stylesheet" href="~/Content/css/style.css" />
+        <link rel="shortcut icon" href="~/Content/images/favicon.png" />
+    </head>
+
+    <div class=" container-scroller">
+        <!-- partial:partials/_navbar.html -->
+        <nav class="navbar navbar-default col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+            <div class="bg-white text-center navbar-brand-wrapper">
+                <a class="navbar-brand brand-logo" href="IndexAdmin"><img src="~/Content/images/logo_star_black.png" /></a>
+                <a class="navbar-brand brand-logo-mini" href="IndexAdmin"><img src="~/Content/images/logo_star_mini.jpg" alt=""></a>
+            </div>
+            <div class="navbar-menu-wrapper d-flex align-items-center">
+                <button class="navbar-toggler navbar-toggler d-none d-lg-block navbar-dark align-self-center mr-3" type="button" data-toggle="minimize">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <form class="form-inline mt-2 mt-md-0 d-none d-lg-block">
+                    <input class="form-control mr-sm-2 search" type="text" placeholder="Search">
+                </form>
+                <ul class="navbar-nav ml-lg-auto d-flex align-items-center flex-row">
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="fa fa-th"></i></a>
+                    </li>
+                </ul>
+                <button class="navbar-toggler navbar-dark navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <ul class="nav navbar-nav navbar-right"><li class="nav-link"><a href="http://localhost:56043/">HomePage</a></li></ul>
+                
+                @if (Request.IsAuthenticated)
+                {
+                    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+                    {
+                        @Html.AntiForgeryToken()
+                        <a href="javascript:document.getElementById('logoutForm').submit()">Log Off</a>
+                    }
+                }
+            </div>
+        </nav>
+
+        <!-- partial -->
+
+        @RenderBody()
+        <!-- partial:partials/_footer.html -->
+        <footer class="footer">
+            <div class="container-fluid clearfix">
+                <span class="float-right">
+                    <a href="#">Star Admin</a> &copy; 2017
+                </span>
+            </div>
+        </footer>
+
+        <!-- partial -->
+
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")
+        @RenderSection("scripts", required: false)
+        <!-- js -->
+
+        <script src="~/Content/node_modules/jquery/dist/jquery.min.js"></script>
+        <script src="~/Content/node_modules/popper.js/dist/umd/popper.min.js"></script>
+        <script src="~/Content/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script src="~/Content/node_modules/chart.js/dist/Chart.min.js"></script>
+        <script src="~/Content/node_modules/perfect-scrollbar/dist/js/perfect-scrollbar.jquery.min.js"></script>
+        
+        <script src="~/Content/js/off-canvas.js"></script>
+        <script src="~/Content/js/hoverable-collapse.js"></script>
+        <script src="~/Content/js/misc.js"></script>
+        <script src="~/Content/js/chart.js"></script>
+        <script src="~/Content/js/maps.js"></script>
+        </body>
+</html>
